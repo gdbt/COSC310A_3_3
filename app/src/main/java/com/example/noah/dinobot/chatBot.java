@@ -28,6 +28,7 @@ public class chatBot {
 	public static void inputfield(){ //input method. Subject to change like crazy
 		Scanner inscan = new Scanner(System.in);
 		String startoption;
+		System.out.println("inputfield");
 		
 		//checking what they are talking about.
 		boolean continueConv;
@@ -92,11 +93,11 @@ public class chatBot {
 			}
 		}
 		else if(top.equals("help")) {
-			helpMe();
+			//helpMe("FILLER");
 			inputfield();
 		}
 		else if(top.equals("about")) {
-			aboutMe();
+			aboutMe("FILLER");
 			inputfield();
 		}
 		//swear filter
@@ -108,31 +109,34 @@ public class chatBot {
 			thinking();
 			thinking();//more spacing
 			thinking();
-			System.exit(0); //closing the program forcibly
+			System.exit(0); //closing the program forcibl
 		}
 	}
 	
 	//helpMe prompts user with list of topics the bot is able to talk about.
-	public static void helpMe() {
-		System.out.println("Curious to know what I can talk about? Have a list"); //prints list of topics
-		System.out.println(thinking());	  
-		System.out.println(thinking());   
-		System.out.println(thinking());   
-		System.out.println("..........."); //spacer
-		System.out.println("We can test how well your roar is!");			 	//Prompts roar contest
-		System.out.println("Or we can talk about food");						//Prompts food topic
-		System.out.println("We can discuss my rock collection!");				//Prompts collection topic
-		System.out.println("How about talking about Lord of The Rings?");		//Prompts Lord of The Rings topic
-		System.out.println("Or if you want to get to know me thats fine too!");	//Prompts general qna
-		System.out.println("I also happen to know about traveling!");
-		System.out.println(thinking());
-		
-	}
+//	public void helpMe() {
+//	    String newtext;
+//		newtext = ("Curious to know what I can talk about? Have a list"); //prints list of topics
+//
+//
+//        //make thinking if it works
+//		currenttext += "\n" + ("..........."); //spacer
+//        currenttext += "\n" + ("We can test how well your roar is!");			 	//Prompts roar contest
+//        currenttext += "\n" + ("Or we can talk about food");						//Prompts food topic
+//        currenttext += "\n" + ("We can discuss my rock collection!");				//Prompts collection topic
+//        currenttext += "\n" + ("How about talking about Lord of The Rings?");		//Prompts Lord of The Rings topic
+//        currenttext += "\n" + ("Or if you want to get to know me thats fine too!");	//Prompts general qna
+//        currenttext += "\n" + ("I also happen to know about traveling!");
+//        currenttext += "\n" + (thinking());
+//
+//	}
 	
-	public static void aboutMe() {
-		System.out.println("My name is Tee-Tee and I am a Java jar program,");
-		System.out.println("Coded by Eric, Noah, Yue, Aidan and Kathryn - for their COSC 310 Assignment. This Version is tweaked by Noah");
-		System.out.println("They hope you'll get the full experience of talking to an old dinosaur like me!");
+	public static String aboutMe(String extra) {
+		String newtext = ("My name is Tee-Tee and I am a Java jar program,");
+        extra += "\n" + newtext;
+		extra += "\n" + ("Coded by Eric, Noah, Yue, Aidan and Kathryn - for their COSC 310 Assignment. This Version is tweaked by Noah");
+        extra += "\n" + ("They hope you'll get the full experience of talking to an old dinosaur like me!");
+        return extra;
 	}
 	
 }

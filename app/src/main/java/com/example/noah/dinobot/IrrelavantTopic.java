@@ -110,9 +110,10 @@ public class IrrelavantTopic extends chatBot{
 			break;
 		case 6:
 			System.out.println("Dinosaur language barrier has been met");
+			break;
 		}
 	
-		return true;
+		return false;
 		// - set up for irrelavant topics = "i dont understand"
 
 	}

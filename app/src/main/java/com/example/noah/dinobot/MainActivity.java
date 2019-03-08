@@ -1,59 +1,72 @@
 package com.example.noah.dinobot;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import java.util.ArrayList;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.Scanner;
 
 
 
 public class MainActivity extends AppCompatActivity {
-
+    //declaring  in and out
     static EditText input;
     static TextView output;
+    //declaring string variables
     String name;
     String newtext;
+    //declaring classes
     static String currenttext;
-    public static IrrelavantTopic irrTopic;
+    public static collection col;
+    public static travel trav;
+    public static shmeegulXD shmee;
+    public static food foo;
+    public static me mez;
+    //declaring Arraylists
+    ArrayList<String> foodRelateds = new ArrayList<String>(){{add("food");add("eat");add("drink");add("tea");add("bubble");add("cook");add("drinks");}};
+    ArrayList<String> mes = new ArrayList<String>(){{add("me");add("i");add("we");add("name");add("date");add("age");add("day");add("old");add("die");add("excellent");add("good");add("tall");add("long");add("size");add("big");add("can");add("capable");}};
+    static ArrayList<String> hobbiess = new ArrayList<String>(){{add("shmeegulXD");add("reading");add("books");add("hobbies");add("shmeegul");add("hobbits");add("wizards");add("lotr");add("lord");add("movies");add("wormtongue");}};
+    static ArrayList<String> collections = new ArrayList<String>(){{add("collection");add("rock");add("rocks");add("bone");add("bones");add("gem");add("gems");add("plant");add("plants");add("collect");add("dangerous");}};
+    static ArrayList<String> travels = new ArrayList<String>() {{add("travel");add("kelowna");add("vancouver");add("london");add("cuba");add("places");add("live");add("traveling");}};
+    static ArrayList<String> roars = new ArrayList<String>() {{add("roar");add("rawr");}};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        irrTopic = new IrrelavantTopic();
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //grabbing intents
+        Intent mainpage = getIntent();
+        Bundle mainname = mainpage.getExtras();
+        name = mainname.getString("names");
+
         input = findViewById(R.id.mainin);
         output = findViewById(R.id.mainout);
 
-        currenttext = ("ROAr roar roooar roar rrrroooaaaarrr RoaaaaaaaaaaaaaaaAAArrArArAr");
-        newtext = ("Welcome to the Dino-Bot, Please Enter the name you would like to be called by and press the enter button.");
+        col = new collection();
+        trav = new travel();
+        shmee = new shmeegulXD();
+        foo = new food();
+        mez = new me();
+
+
+
+
+        newtext = ("Greetings " + name + ". My name is Tee-Tee the T-Rex!!"); //printing name out along with rest of text
         currenttext += "\n" + newtext;
         output.setText(currenttext);
+        //next line
+        newtext = ("If you are curious type \"help\" to get a list of topics I will talk to you about!");
+        currenttext += "\n" + newtext;
+        output.setText(currenttext);
+        appin();
 
-
-
-        Button enter = findViewById(R.id.button);
-        enter.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View V){
-                EditText mainin = findViewById(R.id.mainin);
-                name = mainin.getText().toString(); //making name the variable
-                newtext = ("Greetings " + name + ". My name is Tee-Tee the T-Rex!!"); //printing name out along with rest of text
-                currenttext += "\n" + newtext;
-                output.setText(currenttext);
-                //next line
-                newtext = ("If you are curious type \"help\" to get a list of topics I will talk to you about!");
-                currenttext += "\n" + newtext;
-                output.setText(currenttext);
-
-                appin();
-            }
-        });
     }
     public void appin(){
         EditText mainin = findViewById(R.id.mainin);
@@ -63,33 +76,65 @@ public class MainActivity extends AppCompatActivity {
         enter.setOnClickListener(new View.OnClickListener(){
             public void onClick(View V){
                 EditText mainin = findViewById(R.id.mainin);
-                String startoption;
+                String startoption = mainin.getText().toString();
+                for(int i = 0; i < collections.size(); i++) {
+                    if(startoption.contains(collections.get(i))) {
+                        String tocol = col.main(startoption);
+                        currenttext += "\n" + tocol;
+                        output.setText(currenttext);
+                        repeat();
+                    }
+                }
+                for(int i = 0; i < travels.size(); i++) {
+                    if(startoption.contains(travels.get(i))) {
+                        String totrav = trav.main(startoption);
+                        currenttext += "\n" + totrav;
+                        output.setText(currenttext);
+                        repeat();
+                    }
 
-                boolean continueConv;
-                do {
-                    startoption = mainin.getText().toString(); //scanning an input
-                    continueConv = appconversation(startoption);
-                }while(continueConv!=false);
-                if (continueConv == false) {
+                }
+                for(int i = 0; i < hobbiess.size(); i++) {
+                    if(startoption.contains(hobbiess.get(i))) {
+                        String toshmee = shmee.main(startoption);
+                        currenttext += "\n" + toshmee;
+                        output.setText(currenttext);
+                        repeat();
+                    }
+                }
+                for(int i = 0; i < foodRelateds.size(); i++) {
+                    if(startoption.contains(foodRelateds.get(i))) {
+                        String toshmee = foo.main(startoption);
+                        currenttext += "\n" + toshmee;
+                        output.setText(currenttext);
+                        repeat();
+                    }
+                }
+                for(int i = 0; i < mes.size(); i++) {
+                    if(startoption.contains(mes.get(i))) {
+                        String toshmee = mez.main(startoption);
+                        currenttext += "\n" + toshmee;
+                        output.setText(currenttext);
+                        repeat();
+                    }
+                }
+
+                if(startoption.equals("help")) {
+                    helpMe();
                     appin();
                 }
+                else if(startoption.equals("about")) {
+                    aboutMe();
+                    appin();
+                }
+                System.out.println("Sorry, I don't understand");
+
+
+
             }
         });
     }
-    public boolean appconversation(String userIn){
-        checktopic(userIn); // - keep checktopic for roar contest
-        try {
-            System.out.println("goes here");
-            return irrTopic.checkRelavancy(userIn);
 
-        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ClassNotFoundException | InstantiationException e) {
-            // TODO Auto-generated catch block
-            currenttext += "\n" + ("Sorry! There seems to be an issue.");
-            currenttext += "\n" + ("Please restart the program.");
-            output.setText(currenttext);
-            return false;
-        }
-    }
 
 public static String thinking(){ //prints a line of dots after 1.5 seconds to mimic thinking animation
     long curtime = System.currentTimeMillis();
@@ -102,52 +147,7 @@ public static String thinking(){ //prints a line of dots after 1.5 seconds to mi
 
 }
     //CHECKING THE TOPIC
-    public void checktopic(String top) { //grabs the topic, to save space this is used fo most topics
-        Scanner topche = new Scanner(System.in);
-        if(top.contains("roar")) {
-            System.out.println("Sorry! My dino-speech is better than my english, did you want to have a roaring contest?"); //maybe you didn't mean to go here
-            String topicyesno = (topche.nextLine()).toLowerCase();
-            String[] topicsentence = topicyesno.split(" "); //splitting it up
-            for(int i = 0; i < topicsentence.length; i++){ //
-                String topgrabbed = topicsentence[i];
-                switch(topgrabbed){ //switch parsing string to see what happens
 
-                    case "yes": case "yup": case "okay": case "sure": case "ok": case "ye": case "yeah":
-                        RawrXD.main(null); // plays roaring contest
-                    case "no": case "nope": case "nah": case "never":
-                        System.out.println("No? Okay then.");
-                        appin(); //returns false to where it was called.
-
-                    default:
-                        System.out.println("I still don't understand."); //default incase you spam the keyboard
-
-                }
-                topche.close();
-                appin();
-            }
-        }
-        else if(top.equals("help")) {
-            helpMe();
-            System.out.println("finished help");
-            System.out.println(currenttext);
-            appin();
-        }
-        else if(top.equals("about")) {
-            aboutMe();
-            appin();
-        }
-        //swear filter
-        else if(top.contains("fuck") || top.contains("bitch") || top.contains("shit") || top.contains("ass") || top.contains("fucking") || top.contains("motherfucker") || top.contains("damn")){
-            System.out.println("Please do not swear at me!");
-            thinking();
-            thinking(); //just giving spacing
-            System.out.println("If you are going to be rude this conversation is over!");
-            thinking();
-            thinking();//more spacing
-            thinking();
-            System.exit(0); //closing the program forcibly
-        }
-    }
 
     //helpMe prompts user with list of topics the bot is able to talk about.
     public void helpMe() {
@@ -172,5 +172,9 @@ public static String thinking(){ //prints a line of dots after 1.5 seconds to mi
         currenttext += "\n" + ("Coded by Eric, Noah, Yue, Aidan and Kathryn - for their COSC 310 Assignment. This Version is tweaked by Noah");
         currenttext += "\n" + ("They hope you'll get the full experience of talking to an old dinosaur like me!");
         output.setText(currenttext);
+    }
+    public void repeat(){
+        System.out.println("hit repeat");
+        appin();
     }
 }

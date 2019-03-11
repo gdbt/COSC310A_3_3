@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     //declaring string variables
     String name;
     String newtext;
+    //declaring boolean
+    boolean nick;
     //declaring classes
     static String currenttext;
     public static collection col;
@@ -58,77 +60,95 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        newtext = ("Greetings " + name + ". My name is Tee-Tee the T-Rex!!"); //printing name out along with rest of text
-        currenttext += "\n" + newtext;
+        currenttext = ("Greetings " + name + ". My name is Tee-Tee the T-Rex!!"); //printing name out along with rest of text
         output.setText(currenttext);
         //next line
         newtext = ("If you are curious type \"help\" to get a list of topics I will talk to you about!");
         currenttext += "\n" + newtext;
         output.setText(currenttext);
-        appin();
 
-    }
-    public void appin(){
+        nick = false;
+
         EditText mainin = findViewById(R.id.mainin);
-        mainin.setText("");
         System.out.println("appin");
         Button enter = findViewById(R.id.button);
         enter.setOnClickListener(new View.OnClickListener(){
             public void onClick(View V){
                 EditText mainin = findViewById(R.id.mainin);
                 String startoption = mainin.getText().toString();
-                for(int i = 0; i < collections.size(); i++) {
-                    if(startoption.contains(collections.get(i))) {
-                        String tocol = col.main(startoption);
-                        currenttext += "\n" + tocol;
-                        output.setText(currenttext);
-                        repeat();
-                    }
-                }
-                for(int i = 0; i < travels.size(); i++) {
-                    if(startoption.contains(travels.get(i))) {
-                        String totrav = trav.main(startoption);
-                        currenttext += "\n" + totrav;
-                        output.setText(currenttext);
-                        repeat();
-                    }
+                if(nick == false) {
+                    for (int i = 0; i < collections.size(); i++) {
+                        if (startoption.contains(collections.get(i))) {
+                            String tocol = col.main(startoption);
+                            currenttext += "\n" + tocol;
+                            output.setText(currenttext);
+                            i = collections.size();
+                            nick = true;
 
-                }
-                for(int i = 0; i < hobbiess.size(); i++) {
-                    if(startoption.contains(hobbiess.get(i))) {
-                        String toshmee = shmee.main(startoption);
-                        currenttext += "\n" + toshmee;
-                        output.setText(currenttext);
-                        repeat();
+                        }
                     }
                 }
-                for(int i = 0; i < foodRelateds.size(); i++) {
-                    if(startoption.contains(foodRelateds.get(i))) {
-                        String toshmee = foo.main(startoption);
-                        currenttext += "\n" + toshmee;
-                        output.setText(currenttext);
-                        repeat();
-                    }
-                }
-                for(int i = 0; i < mes.size(); i++) {
-                    if(startoption.contains(mes.get(i))) {
-                        String toshmee = mez.main(startoption);
-                        currenttext += "\n" + toshmee;
-                        output.setText(currenttext);
-                        repeat();
-                    }
-                }
+                if(nick == false) {
+                    for (int i = 0; i < travels.size(); i++) {
+                        if (startoption.contains(travels.get(i))) {
+                            String totrav = trav.main(startoption);
+                            currenttext += "\n" + totrav;
+                            output.setText(currenttext);
+                            i = travels.size();
+                            nick = true;
+                        }
 
+                    }
+                }
+                if(nick == false) {
+                    for (int i = 0; i < hobbiess.size(); i++) {
+                        if (startoption.contains(hobbiess.get(i))) {
+                            String toshmee = shmee.main(startoption);
+                            currenttext += "\n" + toshmee;
+                            output.setText(currenttext);
+                            i = hobbiess.size();
+                            nick = true;
+
+                        }
+                    }
+                }
+                if(nick == false) {
+                    for (int i = 0; i < foodRelateds.size(); i++) {
+                        if (startoption.contains(foodRelateds.get(i))) {
+                            String toshmee = foo.main(startoption);
+                            currenttext += "\n" + toshmee;
+                            output.setText(currenttext);
+                            i = foodRelateds.size();
+                            nick = true;
+
+                        }
+                    }
+                }
+                if(nick == false) {
+                    for (int i = 0; i < mes.size(); i++) {
+                        if (startoption.contains(mes.get(i))) {
+                            String toshmee = mez.main(startoption);
+                            currenttext += "\n" + toshmee;
+                            output.setText(currenttext);
+                            i = mes.size();
+                            nick = true;
+
+                        }
+                    }
+                }
                 if(startoption.equals("help")) {
                     helpMe();
-                    appin();
-                }
-                else if(startoption.equals("about")) {
-                    aboutMe();
-                    appin();
-                }
-                System.out.println("Sorry, I don't understand");
 
+                }
+                if(startoption.equals("about")) {
+                    aboutMe();
+
+                }
+                else {
+                    System.out.println("Sorry, I don't understand");
+                }
+                nick = false;
+                mainin.setText("");
 
 
             }
@@ -173,8 +193,5 @@ public static String thinking(){ //prints a line of dots after 1.5 seconds to mi
         currenttext += "\n" + ("They hope you'll get the full experience of talking to an old dinosaur like me!");
         output.setText(currenttext);
     }
-    public void repeat(){
-        System.out.println("hit repeat");
-        appin();
-    }
+
 }

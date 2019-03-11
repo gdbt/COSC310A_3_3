@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Dinobot</string>
-
+    <string name="input_placeholder">Write a message</string>
 </resources>

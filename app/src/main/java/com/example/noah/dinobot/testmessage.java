@@ -23,12 +23,16 @@ public class testmessage extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
     TextView testtext;
     UsersAdapter adapter;
-
+    public static MainActivity mainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testmessage);
+
+        mainer = new MainActivity();
 
         ArrayList<User> arrayOfUsers = new ArrayList<User>();
         listview = (ListView) findViewById(R.id.mainlist);
@@ -48,11 +52,13 @@ public class testmessage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String typegrab = editter.getText().toString();
+                typegrab.toLowerCase();
+                String x = mainbrain.appin(typegrab);
 
                 User newUser = new User(typegrab,"user");
                 adapter.add(newUser);
                 adapter.notifyDataSetChanged();
-                String x = "Test";
+
                 User nextbot = new User(x,"bot");
                 adapter.add(nextbot);
                 adapter.notifyDataSetChanged();

@@ -22,7 +22,7 @@ static EditText welcomein;
                 String namegrab = welcomein.getText().toString();
                 Bundle welbun = new Bundle();
                 welbun.putString("names",namegrab);
-                Intent welintent = new Intent(Welcome.this, MainActivity.class);
+                Intent welintent = new Intent(Welcome.this, testmessage.class);
                 welintent.putExtras(welbun);
                 startActivity(welintent);
 

@@ -4,42 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context=".testmessage">
 
-    <LinearLayout
+
+
+    <ListView
+        android:id="@+id/mainlist"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="404dp"
+        android:scrollbars="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ListView
-            android:id="@+id/mainlist"
-            android:layout_width="match_parent"
-            android:layout_height="404dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+    </ListView>
 
-            <EditText
-                android:id="@+id/testedit"
-                android:layout_width="585dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="name"
-                android:inputType="text" />
+    <EditText
+        android:id="@+id/testedit"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_weight="1"
+        android:hint=""
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainlist" />
 
-            <Button
-                android:id="@+id/enterbut"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Enter" />
-        </LinearLayout>
+    <Button
+        android:id="@+id/enterbut"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_weight="1"
+        android:text="Enter"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainlist" />
 
-
-    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

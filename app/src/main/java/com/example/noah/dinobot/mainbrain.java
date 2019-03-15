@@ -1,23 +1,9 @@
 package com.example.noah.dinobot;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class mainbrain {
 
-    //declaring  in and out
-
-    //declaring string variables
-
-
-    //declaring boolean
-    boolean nick;
     //declaring classes
 
     public static collection col;
@@ -34,22 +20,16 @@ public class mainbrain {
     static ArrayList<String> roars = new ArrayList<String>() {{add("roar");add("rawr");}};
 
     public static String appin(String startoption){
-        //grabbing intents
-
-
+        //enabling classes
         col = new collection();
         trav = new travel();
         shmee = new shmeegulXD();
         foo = new food();
         mez = new me();
-
-
-
-
-
-
-
-
+        //swear filter
+        if(startoption.contains("fuck") || startoption.contains("bitch") || startoption.contains("shit") || startoption.contains("ass") || startoption.contains("fucking") || startoption.contains("motherfucker") || startoption.contains("damn")){
+            return"Please don't swear me!";
+        }
                     for (int i = 0; i < collections.size(); i++) {
                         if (startoption.contains(collections.get(i))) {
                             String tocol = col.main(startoption);
@@ -58,8 +38,7 @@ public class mainbrain {
 
                         }
                     }
-
-
+                    //throwing travel class and grabbing response
                     for (int i = 0; i < travels.size(); i++) {
                         if (startoption.contains(travels.get(i))) {
                             String totrav = trav.main(startoption);
@@ -69,8 +48,7 @@ public class mainbrain {
                         }
 
                     }
-
-
+                    //throwing shmeegul class and getting response
                     for (int i = 0; i < hobbiess.size(); i++) {
                         if (startoption.contains(hobbiess.get(i))) {
                             String toshmee = shmee.main(startoption);
@@ -80,8 +58,7 @@ public class mainbrain {
 
                         }
                     }
-
-
+                    //throwing food class and grabbing response
                     for (int i = 0; i < foodRelateds.size(); i++) {
                         if (startoption.contains(foodRelateds.get(i))) {
                             String tofood = foo.main(startoption);
@@ -91,8 +68,7 @@ public class mainbrain {
 
                         }
                     }
-
-
+                    //throwing me class and grabbing response
                     for (int i = 0; i < mes.size(); i++) {
                         if (startoption.contains(mes.get(i))) {
                             String tome = mez.main(startoption);
@@ -109,14 +85,32 @@ public class mainbrain {
                     return toabout;
 
                 }
-                else {
-                    return("Sorry, I don't understand");
+                if(startoption.equals("/clear")) {
+                        return"> Clear";
                 }
-
-
-
-
-
+                if(startoption.equals("/commands")){
+                        return "command";
+                }
+                else {
+                    int varied = (int) (Math.random()*7);
+                    switch(varied) {
+                        case 0:
+                            return("My English is still not the best, hard to learn here. Can you maybe reword that?");
+                        case 1:
+                            return("Roar Roar Roar Roar Roar. That's all I got from that sentence.");
+                        case 2:
+                            return("Maybe we should talk about one of my topics?");
+                        case 3:
+                            return("As interesting as that may seem, I just don't know how to respond.");
+                        case 4:
+                            return("Sorry, I don't understand that.");
+                        case 5:
+                            return("Please try and reword that.");
+                        case 6:
+                            return("Dinosaur language barrier has been met");
+                    }
+                    return"I don't understand";
+                }
     }
 
 
@@ -152,10 +146,10 @@ public class mainbrain {
     }
 
     public static String aboutMe() {
-        String next = ("My name is Tee-Tee and I am a Java jar program,");
-        next += "\n" + next;
-        next += "\n" + ("Coded by Eric, Noah, Yue, Aidan and Kathryn - for their COSC 310 Assignment. This Version is tweaked by Noah");
-        next += "\n" + ("They hope you'll get the full experience of talking to an old dinosaur like me!");
+        String next = ("> My name is Tee-Tee and I am a Java jar program,");
+        next += "\n" + ("> Coded by Eric, Noah, Yue, Aidan and Kathryn - for their COSC 310 Assignment.");
+        next += "\n" + ("> They hope you'll get the full experience of talking to an old dinosaur like me!");
+        next += "\n" + (">  This Version/App is tweaked/created by Noah. See the Credits page for more info!");
         return next;
     }
 

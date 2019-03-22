@@ -5,12 +5,12 @@ public class food {
     public String main(String cookinput) {
 
         //main string answer arrays
-        String[] what = {"Meat, like human", "Human, just like you", "Bubble Tea", "It's delisious"};
-        String[] where = {"In my cave", "In Taiwan"};
-        String[] who = {"Sometimes with myself", "Sometimes with other dinosaurs", "by myself", "The owner."};
-        String[] how = {"four times", "It's so delicious", "By my hand", "It's a combination of tea and milk and tapioca balls.", "I like it half sweet."};
-        String[] why = {"I need to eat.", "Because you look delicious."};
-        String[] when = {"During luchtime", "During dinner time.", "Perhaps during breakfest time.", "Two days ago.", "When I am hungry."};
+        String[] what = {"> Meat, like human", "> Human, just like you", "> Bubble Tea", "> It's delicious"};
+        String[] where = {"> In my cave", "> In Taiwan"};
+        String[] who = {"> Sometimes with myself", "> Sometimes with other dinosaurs", "> by myself", "> The owner."};
+        String[] how = {"> Four times a day", "> It's so delicious", "> By my hand", "> It's a combination of tea and milk and tapioca balls.", "> I like it half sweet."};
+        String[] why = {"> I need to eat.", "> Because you look delicious."};
+        String[] when = {"> During lunchtime", "> During dinner time.", "> Perhaps during breakfast time.", "> Two days ago.", "> When I am hungry."};
 
         //the who section
         if(cookinput.contains("who") && cookinput.contains("with")) {

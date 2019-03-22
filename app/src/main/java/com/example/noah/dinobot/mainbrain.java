@@ -13,7 +13,7 @@ public class mainbrain {
     public static me mez;
     //declaring Arraylists
     static ArrayList<String> foodRelateds = new ArrayList<String>(){{add("food");add("eat");add("drink");add("tea");add("bubble");add("cook");add("drinks");}};
-    static ArrayList<String> mes = new ArrayList<String>(){{add("me");add("i");add("we");add("name");add("date");add("age");add("day");add("old");add("die");add("excellent");add("good");add("tall");add("long");add("size");add("big");add("can");add("capable");}};
+    static ArrayList<String> mes = new ArrayList<String>(){{add("me");add("i");add("we");add("name");add("date");add("age");add("day");add("old");add("die");add("excellent");add("good");add("tall");add("long");add("size");add("big");add("can");add("capable");add("today");}};
     static ArrayList<String> hobbiess = new ArrayList<String>(){{add("shmeegulXD");add("reading");add("books");add("hobbies");add("shmeegul");add("hobbits");add("wizards");add("lotr");add("lord");add("movies");add("wormtongue");}};
     static ArrayList<String> collections = new ArrayList<String>(){{add("collection");add("rock");add("rocks");add("bone");add("bones");add("gem");add("gems");add("plant");add("plants");add("collect");add("dangerous");}};
     static ArrayList<String> travels = new ArrayList<String>() {{add("travel");add("kelowna");add("vancouver");add("london");add("cuba");add("places");add("live");add("traveling");}};
@@ -29,6 +29,46 @@ public class mainbrain {
         //swear filter
         if(startoption.contains("fuck") || startoption.contains("bitch") || startoption.contains("shit") || startoption.contains("ass") || startoption.contains("fucking") || startoption.contains("motherfucker") || startoption.contains("damn")){
             return"Please don't swear me!";
+        }
+        switch(startoption){
+            case "emerald":
+                return("> That's the May gemstone");
+            case "ruby":
+                return("> That's the July gemstone");
+
+            case "diamond":
+                return("> That's the April gemstone");
+
+            case "opal":
+                return("> That's the October gemstone");
+            case "garnet":
+                return("> That's the January gemstone");
+            case "topaz":
+                return("> That's the November gemstone");
+            case "sapphire":
+                return("> That's the September gemstone");
+            case "pearl":
+                return("> That's the June gemstone");
+            case "geode":
+                return("> That sounds like a good one!");
+            case "amythest":
+                return("> That's the February gemstone");
+            case "aquamarine":
+                return("> That's the March gemstone");
+            case "turquoise":
+                return("> That's the December gemstone");
+            case "onyx":
+                return("> That sounds like a good one!");
+            case "carnelian":
+                return("> That sounds like a good one!");
+            case "peridot":
+                return("> That's the August gemstone");
+            case "beryl":
+                return("> That sounds like a good one!");
+            case "tanzanite":
+                return("> That sounds like a good one!");
+            default:
+
         }
                     for (int i = 0; i < collections.size(); i++) {
                         if (startoption.contains(collections.get(i))) {
@@ -91,25 +131,26 @@ public class mainbrain {
                 if(startoption.equals("/commands")){
                         return "command";
                 }
+
                 else {
                     int varied = (int) (Math.random()*7);
                     switch(varied) {
                         case 0:
-                            return("My English is still not the best, hard to learn here. Can you maybe reword that?");
+                            return("> My English is still not the best, hard to learn here. Can you maybe reword that?");
                         case 1:
-                            return("Roar Roar Roar Roar Roar. That's all I got from that sentence.");
+                            return("> Roar Roar Roar Roar Roar. That's all I got from that sentence.");
                         case 2:
-                            return("Maybe we should talk about one of my topics?");
+                            return("> Maybe we should talk about one of my topics?");
                         case 3:
-                            return("As interesting as that may seem, I just don't know how to respond.");
+                            return("> As interesting as that may seem, I just don't know how to respond.");
                         case 4:
-                            return("Sorry, I don't understand that.");
+                            return("> Sorry, I don't understand that.");
                         case 5:
-                            return("Please try and reword that.");
+                            return("> Please try and reword that.");
                         case 6:
-                            return("Dinosaur language barrier has been met");
+                            return("> Dinosaur language barrier has been met");
                     }
-                    return"I don't understand";
+                    return"> I don't understand";
                 }
     }
 

@@ -1,6 +1,7 @@
 package com.example.noah.dinobot;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,20 +19,32 @@ public class UsersAdapter extends ArrayAdapter<User> {
     }
     public View getView(int position, View convertView, ViewGroup parent){
         User user = getItem(position);
-        if (convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.testcircle, parent, false);
-        }
 
-        TextView tvsaid = (TextView) convertView.findViewById(R.id.itemname);
-        ImageView imv = (ImageView) convertView.findViewById(R.id.icon);
+
+
         if(user.userorbot.equals("user")){
-            imv.setImageResource(R.mipmap.userface);
+            if(convertView == null){
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.usermessage,parent,false);
+            }
         }
         else if(user.userorbot.equals("bot")){
-            imv.setImageResource(R.mipmap.dinosaur);
-        }
+            if (convertView == null){
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.testcircle, parent, false);
+            }
 
-        tvsaid.setText(user.saying);
+        }
+        TextView tvsaid = (TextView) convertView.findViewById(R.id.itemname);
+        TextView usersaid = (TextView) convertView.findViewById(R.id.textView3);
+        ImageView imv = (ImageView) convertView.findViewById(R.id.icon);
+        ImageView imu = (ImageView) convertView.findViewById(R.id.imageView);
+        if(user.userorbot.equals("user")){
+            imu.setImageResource(R.mipmap.pridesign);
+            usersaid.setText(user.saying);
+        }
+        else{
+            imv.setImageResource(R.mipmap.dinosaur);
+            tvsaid.setText(user.saying);
+        }
         return convertView;
     }
 }

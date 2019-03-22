@@ -8,12 +8,13 @@ static int mathtest;
 	public String main(String userinput)  {
 		// TODO Auto-generated method stub
 		//asking what favorite type of rocks
+
 		if((userinput.contains("what")) && userinput.contains("favorite") && (userinput.contains("rock") || userinput.contains("rocks"))){
 			return("I don't have a favorite rock.");
 
 		}
 		//asking why no plants
-		if(userinput.contains("why") && ((userinput.contains("plant")) || userinput.contains("plants"))) {
+		else if(userinput.contains("why") && ((userinput.contains("plant")) || userinput.contains("plants"))) {
 			mathtest = (int)(Math.random()*2);
 			if(mathtest == 1)
 				return("Plants are too soft and break easily");
@@ -82,6 +83,7 @@ static int mathtest;
 			else
 				return("I have a few gem rocks.");
 		}
+
 		//asking what kind of gems
 		else if(userinput.contains("what") && ((userinput.contains("gem") || (userinput.contains("gems"))))){
 			mathtest = (int)(Math.random()*2);

@@ -14,17 +14,18 @@ static EditText welcomein;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        //initializing welcome edit text
         welcomein = findViewById(R.id.mainin2);
 
-        Button welenter = findViewById(R.id.mainenter);
+        Button welenter = findViewById(R.id.mainenter); //activates upon button press
         welenter.setOnClickListener(new View.OnClickListener(){
             public void onClick(View V) {
-                String namegrab = welcomein.getText().toString();
+                String namegrab = welcomein.getText().toString(); //saves name from edit text
                 Bundle welbun = new Bundle();
-                welbun.putString("names",namegrab);
+                welbun.putString("names",namegrab); //puts it into a bundle
                 Intent welintent = new Intent(Welcome.this, testmessage.class);
                 welintent.putExtras(welbun);
-                startActivity(welintent);
+                startActivity(welintent); //then send the intent off to the testmessage
 
             }
         });

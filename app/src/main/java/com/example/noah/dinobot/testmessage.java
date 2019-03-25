@@ -14,6 +14,7 @@ public class testmessage extends AppCompatActivity {
     //setting up variables
     ListView listview;
     Button enterbut;
+    Button creditbut;
     EditText editter;
     UsersAdapter adapter;
     String name;
@@ -88,6 +89,14 @@ public class testmessage extends AppCompatActivity {
             }
         });
 
+        creditbut = (Button)(findViewById(R.id.creditbutton)); //activating credit button
+        creditbut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent creditstart = new Intent(testmessage.this, Credits.class); //intent to go to credits
+                startActivity(creditstart); //starting activity
+            }
+        });
     }
     //command list
     public String commander(){ //massive string for the commands

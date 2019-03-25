@@ -21,7 +21,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
         User user = getItem(position);
 
 
-
+// checking if it is a user or bot layout needed
         if(user.userorbot.equals("user")){
             if(convertView == null){
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.usermessage,parent,false);
@@ -33,10 +33,12 @@ public class UsersAdapter extends ArrayAdapter<User> {
             }
 
         }
+        //initilizing items
         TextView tvsaid = (TextView) convertView.findViewById(R.id.itemname);
         TextView usersaid = (TextView) convertView.findViewById(R.id.textView3);
         ImageView imv = (ImageView) convertView.findViewById(R.id.icon);
         ImageView imu = (ImageView) convertView.findViewById(R.id.imageView);
+        //checking if the message will be from the user or bot
         if(user.userorbot.equals("user")){
             imu.setImageResource(R.mipmap.pridesign);
             usersaid.setText(user.saying);

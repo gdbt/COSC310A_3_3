@@ -30,7 +30,7 @@ public class mainbrain {
         if(startoption.contains("fuck") || startoption.contains("bitch") || startoption.contains("shit") || startoption.contains("ass") || startoption.contains("fucking") || startoption.contains("motherfucker") || startoption.contains("damn")){
             return"Please don't swear me!";
         }
-        switch(startoption){
+        switch(startoption){ //case incase person says just an gem name
             case "emerald":
                 return("> That's the May gemstone");
             case "ruby":
@@ -70,7 +70,7 @@ public class mainbrain {
             default:
 
         }
-                    for (int i = 0; i < collections.size(); i++) {
+                    for (int i = 0; i < collections.size(); i++) {          //checking if it matches collection, if so return response
                         if (startoption.contains(collections.get(i))) {
                             String tocol = col.main(startoption);
                             return tocol;
@@ -79,7 +79,7 @@ public class mainbrain {
                         }
                     }
                     //throwing travel class and grabbing response
-                    for (int i = 0; i < travels.size(); i++) {
+                    for (int i = 0; i < travels.size(); i++) {              //checking if it matches travel class, if so returns response
                         if (startoption.contains(travels.get(i))) {
                             String totrav = trav.main(startoption);
                             return totrav;
@@ -89,7 +89,7 @@ public class mainbrain {
 
                     }
                     //throwing shmeegul class and getting response
-                    for (int i = 0; i < hobbiess.size(); i++) {
+                    for (int i = 0; i < hobbiess.size(); i++) {             //checking if it matches hobbies (LOTR)  class, if so returns response
                         if (startoption.contains(hobbiess.get(i))) {
                             String toshmee = shmee.main(startoption);
                             return toshmee;
@@ -99,7 +99,7 @@ public class mainbrain {
                         }
                     }
                     //throwing food class and grabbing response
-                    for (int i = 0; i < foodRelateds.size(); i++) {
+                    for (int i = 0; i < foodRelateds.size(); i++) {         //checking if it matches food class, if so returns response
                         if (startoption.contains(foodRelateds.get(i))) {
                             String tofood = foo.main(startoption);
                             return tofood;
@@ -109,30 +109,29 @@ public class mainbrain {
                         }
                     }
                     //throwing me class and grabbing response
-                    for (int i = 0; i < mes.size(); i++) {
+                    for (int i = 0; i < mes.size(); i++) {                  //checking if it matches me class, if so returns response
                         if (startoption.contains(mes.get(i))) {
                             String tome = mez.main(startoption);
                             return tome;
                         }
                     }
-
-                if(startoption.equals("help")) {
+                if(startoption.equals("help")) { //checking if someone says help
                     String tohelp = helpMe();
                     return tohelp;
                 }
-                if(startoption.equals("about")) {
+                if(startoption.equals("about")) { //checking if you say about
                     String toabout = aboutMe();
                     return toabout;
 
                 }
-                if(startoption.equals("/clear")) {
+                if(startoption.equals("/clear")) { //checking if you use the clear command
                         return"> Clear";
                 }
-                if(startoption.equals("/commands")){
+                if(startoption.equals("/commands")){ //checking if you use the commands command
                         return "command";
                 }
 
-                else {
+                else { //giving several random responses in the event that you enter something that doesn't match up
                     int varied = (int) (Math.random()*7);
                     switch(varied) {
                         case 0:
@@ -154,39 +153,20 @@ public class mainbrain {
                 }
     }
 
-
-    public static String thinking(){ //prints a line of dots after 1.5 seconds to mimic thinking animation
-        long curtime = System.currentTimeMillis();
-
-        long waittime1 = curtime + 1000;
-        while (curtime != waittime1){
-            curtime = System.currentTimeMillis();
-        }
-        return "............";
-
-    }
-    //CHECKING THE TOPIC
-
-
     //helpMe prompts user with list of topics the bot is able to talk about.
     public static String helpMe() {
 
-        String next = ("Curious to know what I can talk about? Have a list"); //prints list of topics
-
-
-        //make thinking if it works
-        next += "\n" + ("..........."); //spacer
-        next += "\n" + ("We can test how well your roar is!");			 	//Prompts roar contest
-        next += "\n" + ("Or we can talk about food");						//Prompts food topic
-        next += "\n" + ("We can discuss my rock collection!");				//Prompts collection topic
-        next += "\n" + ("How about talking about Lord of The Rings?");		//Prompts Lord of The Rings topic
-        next += "\n" + ("Or if you want to get to know me thats fine too!");	//Prompts general qna
-        next += "\n" + ("I also happen to know about traveling!");
-        next += "\n" + (thinking());
+        String next = ("> Curious to know what I can talk about? Have a list"); //prints list of topics
+        next += "\n" + ("> We can test how well your roar is!");			 	//Prompts roar contest
+        next += "\n" + ("> Or we can talk about food");						//Prompts food topic
+        next += "\n" + ("> We can discuss my rock collection!");				//Prompts collection topic
+        next += "\n" + ("> How about talking about Lord of The Rings?");		//Prompts Lord of The Rings topic
+        next += "\n" + ("> Or if you want to get to know me thats fine too!");	//Prompts general qna
+        next += "\n" + ("> I also happen to know about traveling!");
         return next;
     }
 
-    public static String aboutMe() {
+    public static String aboutMe() { //the about me page
         String next = ("> My name is Tee-Tee and I am a Java jar program,");
         next += "\n" + ("> Coded by Eric, Noah, Yue, Aidan and Kathryn - for their COSC 310 Assignment.");
         next += "\n" + ("> They hope you'll get the full experience of talking to an old dinosaur like me!");

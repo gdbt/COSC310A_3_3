@@ -9,6 +9,9 @@ public class travel {
 		if (userinput.contains("what") && userinput.contains("cuba")) {
 			return("I heard cuba is a great vacation spot!");
 		}
+		else if(userinput.contains("quantum") && userinput.contains("travel")) {
+			return("That is for me to know.");
+		}
 		else if (userinput.contains("what") && userinput.contains("london")) {
 			return("Isn't London the capital of the Island nation England? It sounds very lush and green in the country side around it");
 		}
@@ -31,9 +34,7 @@ public class travel {
 		else if(userinput.contains("how") && userinput.contains("travel")) {
 			return("I would use a teleporter and time machine to traverse 4th dimensional barriers to access the current time.");
 		}
-		else if(userinput.contains("quantum") && userinput.contains("travel")) {
-			return("That is for me to know.");
-		}
+
 		return "I don't know.";
 
 

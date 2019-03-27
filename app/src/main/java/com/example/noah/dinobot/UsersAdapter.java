@@ -19,7 +19,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
     }
     public View getView(int position, View convertView, ViewGroup parent){
         User user = getItem(position);
-
+        convertView = null;
 
 // checking if it is a user or bot layout needed
         if(user.userorbot.equals("user")){

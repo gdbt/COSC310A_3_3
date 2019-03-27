@@ -13,11 +13,13 @@ public class mainbrain {
     public static me mez;
     //declaring Arraylists
     static ArrayList<String> foodRelateds = new ArrayList<String>(){{add("food");add("eat");add("drink");add("tea");add("bubble");add("cook");add("drinks");}};
-    static ArrayList<String> mes = new ArrayList<String>(){{add("me");add("i");add("we");add("name");add("date");add("age");add("day");add("old");add("die");add("excellent");add("good");add("tall");add("long");add("size");add("big");add("can");add("capable");add("today");}};
+    static ArrayList<String> mes = new ArrayList<String>(){{add("me");add("i");add("we");add("name");add("date");add("age");add("day");add("old");add("die");add("excellent");add("good");add("tall");add("long");add("size");add("big");add("can");add("capable");add("today");add("hello");add("you");}};
     static ArrayList<String> hobbiess = new ArrayList<String>(){{add("shmeegulXD");add("reading");add("books");add("hobbies");add("shmeegul");add("hobbits");add("wizards");add("lotr");add("lord");add("movies");add("wormtongue");}};
     static ArrayList<String> collections = new ArrayList<String>(){{add("collection");add("rock");add("rocks");add("bone");add("bones");add("gem");add("gems");add("plant");add("plants");add("collect");add("dangerous");}};
     static ArrayList<String> travels = new ArrayList<String>() {{add("travel");add("kelowna");add("vancouver");add("london");add("cuba");add("places");add("live");add("traveling");}};
     static ArrayList<String> roars = new ArrayList<String>() {{add("roar");add("rawr");}};
+    //declaring the how are you string array
+    static String[] howyou = {"I am good", "I am great", "I am excellent", "I am always good", "I always feel great"};
 
     public static String appin(String startoption){
         //enabling classes
@@ -29,6 +31,10 @@ public class mainbrain {
         //swear filter
         if(startoption.contains("fuck") || startoption.contains("bitch") || startoption.contains("shit") || startoption.contains("ass") || startoption.contains("fucking") || startoption.contains("motherfucker") || startoption.contains("damn")){
             return"Please don't swear me!";
+        }
+        if(startoption.equals("how are you")){
+            int t = (int)(Math.random()*5);
+            return(howyou[t]);
         }
         switch(startoption){ //case incase person says just an gem name
             case "emerald":

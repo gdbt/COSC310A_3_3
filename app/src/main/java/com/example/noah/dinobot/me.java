@@ -22,11 +22,20 @@ public class me{
         String[] why = { "I have no idea.", "Because I am hungry.", "Because you look delicious and juicy.",
                 "Because I am adorable.", "Because I am a hardworking, and talented T-rex.", "Because you are here.",
                 "Because... Because... Because... What did you ask me again?", "Because I am a dinosaur." };
-
+        String[] hello = {"Hi", "Hey", "Hello", "Yo", "Greetings"};
+        String[] howyou = {"I am good", "I am great", "I am excellent", "I am always good", "I always feel great"};
         //main what area
         if (meinput.contains("what") && meinput.contains("can") || meinput.contains("capable")) {
             return(what[4]);
-        } else if (meinput.contains("what") && meinput.contains("like")) { // this part list one of the things that Tee-Tee likes
+        }else if(meinput.contains("hello") && meinput.contains("how")){
+            int x = (int)(Math.random()*5);
+            return(howyou[x]);
+
+        }else if(meinput.contains("hello")){
+            int t = (int)(Math.random()*5);
+            return(hello[t]);
+        }
+        else if (meinput.contains("what") && meinput.contains("like")) { // this part list one of the things that Tee-Tee likes
             int i;
             int a = (int)(Math.random()*((8-1)+1))+1;
             if ( a == 1) i = 5;
@@ -167,6 +176,9 @@ public class me{
             else								// Generate a random num. and print respond accordingly
                 i = 1;
             return(how[i]);// 0,1
+        }
+        else if(meinput.contains("who") && meinput.contains("you")){
+            return who[2];
         }
 
         return "Sorry I don't understand";

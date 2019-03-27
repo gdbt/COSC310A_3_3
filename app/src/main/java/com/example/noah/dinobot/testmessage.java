@@ -135,6 +135,39 @@ public class testmessage extends AppCompatActivity {
                 + "> How is bubble tea made" + "\n"
                 + "> How do you like your bubble tea" + "\n"
                 + "> What can you do" + "\n"
+                + "> What is the date" + "\n"
+                + "> What day of the week is it" + "\n"
+                + "> What is your name"
+                + "> What are you" + "\n"
+                + "> Who are you" + "\n"
+                + "> Where am i" + "\n"
+                + "> Why eat food" + "\n"
+                + "> Why eat me" + "\n"
+                + "> How old are you" + "\n"
+                + "> how tall are you" + "\n"
+                + "> How did you die" + "\n"
+                + "> Do you like lotr" + "\n"
+                + "> Why do you like lotr" + "\n"
+                + "> How did you find lotr" + "\n"
+                + "> When did you find lotr" + "\n"
+                + "> What is your least favorite character is lotr" + "\n"
+                + "> What is your favorite character in lotr" + "\n"
+                + "> What is your favorite location in lotr" + "\n"
+                + "> If you had the ring from lotr what what would you do with it" + "\n"
+                + "> what else can you tell me about lotr" + "\n"
+                + "> What do you think of the lotr movies" + "\n"
+                + "> What do you think of wormtongue" + "\n"
+                + "> What do you think of Kelowna" + "\n"
+                + "> What do you think of London" + "\n"
+                + "> What do you think of Cuba" + "\n"
+                + "> Where do you live" + "\n"
+                + "> Where did you learn about these places to travel" + "\n"
+                + "> How would you travel" + "\n"
+                + "> How do you know about quantum travel"
+
+
+
+
         );
         return s;
     }

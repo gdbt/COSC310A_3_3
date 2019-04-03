@@ -16,9 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".testmessage"
-            android:parentActivityName=".Welcome"/>
+        <activity
+            android:name=".testmessage"
+            android:parentActivityName=".Welcome" />
         <activity android:name=".Credits" />
+        <activity android:name=".profilepic"></activity>
     </application>
 
 </manifest>

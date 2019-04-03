@@ -17,21 +17,21 @@ public class testmessage extends AppCompatActivity {
     Button creditbut;
     EditText editter;
     UsersAdapter adapter;
-    String name;
-
+    String namer;
+    String picdata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //grabbing intents
-        Intent mainpage = getIntent(); //grabbing the name intent from the welcoming page
-        Bundle mainname = mainpage.getExtras();
-        name = mainname.getString("names"); //assigning names
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testmessage);
-
-
+        //grabbing frrom bundles
+        Intent profilepic = getIntent(); //grabbing the name intent from the welcoming page
+        Bundle maindata = profilepic.getExtras();
+        namer = maindata.getString("name"); //assigning names
+        picdata = maindata.getString("picdata");
         ArrayList<User> arrayOfUsers = new ArrayList<User>(); //creating the arraylist for the custom object users
         listview = (ListView) findViewById(R.id.mainlist); //initializing listview
         enterbut = (Button)findViewById(R.id.enterbut); //initializing enterbutton
@@ -42,7 +42,7 @@ public class testmessage extends AppCompatActivity {
         listview.setAdapter(adapter); //setting the listview to the adapter
 
         //printing greeting message immediately
-        String greet = "> Greetings " + name + " My Name is Tee-Tee the T-Rex!!";
+        String greet = "> Greetings " + namer + " My Name is Tee-Tee the T-Rex!!";
         greet += ("\n" + "> Type \"Help\" to get a list of things we can talk about!");
         greet += ("\n" + "> Want to see every possible command? type /commands ");
         greet += ("\n" + "> Want to clear the chat history? Type /clear ");
@@ -50,10 +50,10 @@ public class testmessage extends AppCompatActivity {
         adapter.add(newUser); //adding user message to adapter
         adapter.notifyDataSetChanged(); //update screen
 
-
         enterbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String originalmessage = (editter.getText().toString());
                 String typegrab = (editter.getText().toString()).toLowerCase(); //this grabs what was put in the edit text and makes it lowercase
                 String x = mainbrain.appin(typegrab); //this runs the mainbrain with the phrase so look for matches
                 int qMark = typegrab.indexOf("?"); //this allows question marks to not interfere
@@ -63,7 +63,7 @@ public class testmessage extends AppCompatActivity {
                 }
 
                 //taking user response and printing it
-                User newUser = new User(typegrab,"user"); //this generates the users message sending the phrase
+                User newUser = new User(originalmessage,picdata); //this generates the users message sending the phrase
                 adapter.add(newUser); //add it to the adapter
                 adapter.notifyDataSetChanged(); //notify the system that the adapter has changed
 
@@ -78,6 +78,12 @@ public class testmessage extends AppCompatActivity {
                     User commanbot = new User(com,"bot"); //generating the bots message and returning the string
                     adapter.add(commanbot); //adding to adapter
                     adapter.notifyDataSetChanged(); //updating field
+                }
+                else if(x.contains("nick")){ //this will print nick's description
+                    String nickdisc = "Nick is a great friend of Noah, who has allowed him to use some of his artwork in the application!";
+                    User nickbot = new User(nickdisc,"bot");
+                    adapter.add(nickbot);
+                    adapter.notifyDataSetChanged();
                 }
                 //grabbing response and printing it
                 else {
@@ -101,6 +107,7 @@ public class testmessage extends AppCompatActivity {
     //command list
     public String commander(){ //massive string for the commands
         String s = ("Printing Command list" + "\n"
+                + "> nick" + "\n"
                 + "> What do you collect" + "\n"
                 + "> What kind of rocks" + "\n"
                 + "> What bones do you have" + "\n"
@@ -164,10 +171,6 @@ public class testmessage extends AppCompatActivity {
                 + "> Where did you learn about these places to travel" + "\n"
                 + "> How would you travel" + "\n"
                 + "> How do you know about quantum travel"
-
-
-
-
         );
         return s;
     }

@@ -23,9 +23,9 @@ static EditText welcomein;
                 String namegrab = welcomein.getText().toString(); //saves name from edit text
                 Bundle welbun = new Bundle();
                 welbun.putString("names",namegrab); //puts it into a bundle
-                Intent welintent = new Intent(Welcome.this, testmessage.class);
-                welintent.putExtras(welbun);
-                startActivity(welintent); //then send the intent off to the testmessage
+                Intent goprofile = new Intent(Welcome.this, profilepic.class);
+                goprofile.putExtras(welbun);
+                startActivity(goprofile); //then send the intent off to the testmessage
 
             }
         });

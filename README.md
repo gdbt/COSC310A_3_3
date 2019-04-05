@@ -6,7 +6,7 @@ I took the code and transfered it over to android studio, after many hours of re
 within android studio and turned it into a phone app that I could bring anywhere
 
 Some of the features I implemented were
--The travel topic, an extra topic with some responses
+         -The travel topic, an extra topic with some responses
           *User: "What do you think of Cuba"
           *Bot: "I heard it is a great vacationing spot"
           *User: How would you travel to these places

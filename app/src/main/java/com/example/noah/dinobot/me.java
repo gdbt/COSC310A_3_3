@@ -31,7 +31,7 @@ public class me{
             int x = (int)(Math.random()*5);
             return(howyou[x]);
 
-        }else if(meinput.contains("hello")){
+        }else if(meinput.contains("hello") || meinput.contains("hey") || meinput.contains("hi")){
             int t = (int)(Math.random()*5);
             return(hello[t]);
         }

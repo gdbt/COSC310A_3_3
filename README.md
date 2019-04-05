@@ -8,16 +8,22 @@ within android studio and turned it into a phone app that I could bring anywhere
 Some of the features I implemented were
 
 -The travel topic, an extra topic with some responses
-          *User: "What do you think of Cuba"
-          *Bot: "I heard it is a great vacationing spot"
-          *User: How would you travel to these places
-          *Bot: I would use a teleporterr and time machine to traverse 4th dimensional barriers to access the current time.
+          
+*User: "What do you think of Cuba"
+          
+*Bot: "I heard it is a great vacationing spot"
+          
+*User: How would you travel to these places
+
+*Bot: I would use a teleporterr and time machine to traverse 4th dimensional barriers to access the current time.
 
 -Several extra responses in the event the user goes elsewhere in the code.
-          *User: Why why why why
-          *Bot: Dinosaur language barrierr has been met
-          *User: What does the fox say
-           *Bot: Maybe we should talk about one of my topics
+
+
+*User: Why why why why
+*Bot: Dinosaur language barrierr has been met
+*User: What does the fox say
+*Bot: Maybe we should talk about one of my topics
 
 -Added a command and clear command, the command command prints a giant list of everything you can say to get every response, though it is not limited to these commands 
           -The clear command wipes the chat history allowing you to start over.
